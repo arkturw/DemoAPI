@@ -5,20 +5,20 @@ import ast
 
 
 class Users(Resource):
+
     def get(self):
         data = pd.read_csv('users.csv')
         data = data.to_dict()
         return {'data': data}, 200
 
+
     def post(self):
-        # inicjalizacja parsera
         parser = reqparse.RequestParser()
 
         parser.add_argument('userId', required=True)
         parser.add_argument('name', required=True)
         parser.add_argument('city', required=True)
 
-        # wrzucenie sparsowanych argumentów do słownika
         args = parser.parse_args()
 
         data = pd.read_csv('users.csv')
@@ -38,6 +38,7 @@ class Users(Resource):
             data.to_csv('users.csv', index=False)
 
             return {'data': data.to_dict()}, 200
+
 
     def put(self):
         parser = reqparse.RequestParser()
@@ -62,3 +63,21 @@ class Users(Resource):
                 'message': f"'{args['userId']}' noty found."
             }, 404
 
+
+    def delete(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('userId', required=True)
+        args = parser.parse_args()
+
+        data = pd.read_csv('users.csv')
+
+        if args['userId'] in list(data['userId']):
+            data = data[data['userId'] != args['userId']]
+            data.to_csv('users.csv', index=False)
+
+            return {'data': data.to_dict()}, 200
+
+        else:
+            return {
+                'message': f";{args['userId']} user not found."
+            }, 404

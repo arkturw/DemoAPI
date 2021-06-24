@@ -6,6 +6,7 @@ from users import Users
 from locations import Locations
 
 app = Flask(__name__)
+app.debug = True
 api = Api(app)
 
 api.add_resource(Users, '/users')

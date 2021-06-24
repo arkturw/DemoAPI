@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "41c52dbe-bedf-4f28-9701-c5283b65c3a6",
+		"name": "DemoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users?userId=abc123&name=The Rock&city=Los Angeles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "abc123"
+								},
+								{
+									"key": "name",
+									"value": "The Rock"
+								},
+								{
+									"key": "city",
+									"value": "Los Angeles"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put users location",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users?userId=abc123&location=0007",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "abc123"
+								},
+								{
+									"key": "location",
+									"value": "0007"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users?userId=abc123",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "abc123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Get locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/locations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/locations?locationId=7&name=Kluski z makiem&rating=4.1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "7"
+								},
+								{
+									"key": "name",
+									"value": "Kluski z makiem"
+								},
+								{
+									"key": "rating",
+									"value": "4.1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete locations",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/locations?locationId=7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch locations (empty)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/locations?locationId=7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch locations (name, rating)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/locations?locationId=7&name=Pierogi&rating=2.2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "locationId",
+									"value": "7"
+								},
+								{
+									"key": "name",
+									"value": "Pierogi"
+								},
+								{
+									"key": "rating",
+									"value": "2.2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
