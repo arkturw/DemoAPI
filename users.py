@@ -11,7 +11,6 @@ class Users(Resource):
         data = data.to_dict()
         return {'data': data}, 200
 
-
     def post(self):
         parser = reqparse.RequestParser()
 
@@ -25,8 +24,8 @@ class Users(Resource):
 
         if args['userId'] in list(data['userId']):
             return {
-                'message': f"'{args['userId']}' already exists."
-            }, 401
+                       'message': f"'{args['userId']}' already exists."
+                   }, 401
         else:
             new_data = pd.DataFrame({
                 'userId': args['userId'],
@@ -38,7 +37,6 @@ class Users(Resource):
             data.to_csv('users.csv', index=False)
 
             return {'data': data.to_dict()}, 200
-
 
     def put(self):
         parser = reqparse.RequestParser()
@@ -60,9 +58,8 @@ class Users(Resource):
 
         else:
             return {
-                'message': f"'{args['userId']}' noty found."
-            }, 404
-
+                       'message': f"'{args['userId']}' noty found."
+                   }, 404
 
     def delete(self):
         parser = reqparse.RequestParser()
@@ -79,5 +76,5 @@ class Users(Resource):
 
         else:
             return {
-                'message': f";{args['userId']} user not found."
-            }, 404
+                       'message': f";{args['userId']} user not found."
+                   }, 404

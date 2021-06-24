@@ -10,7 +10,6 @@ class Locations(Resource):
         data = pd.read_csv('locations.csv')
         return {'data': data.to_dict()}, 200
 
-
     def post(self):
         parser = reqparse.RequestParser()
 
@@ -40,7 +39,6 @@ class Locations(Resource):
             data.to_csv('locations.csv', index=False)
             return {'data': data.to_dict()}, 200
 
-
     def patch(self):
         parser = reqparse.RequestParser()
 
@@ -68,7 +66,6 @@ class Locations(Resource):
             return {
                 'message': f"'{args['locationId']}' does not exist."
             }, 404
-
 
     def delete(self):
         parser = reqparse.RequestParser()
